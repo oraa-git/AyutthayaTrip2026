@@ -1,0 +1,1600 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+  <title>Ayutthaya One Day Trip | 27/11/2026</title>
+
+  <!-- Google Fonts: Sarabun -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            purewhite: '#FFFFFF',
+            alabaster: '#F8FAFC',
+            slateborder: '#E2E8F0',
+            charcoal: '#0F172A',
+            deepslate: '#1E293B',
+            slatebody: '#475569',
+            royal: {
+              DEFAULT: '#2563EB',
+              light: '#3B82F6',
+              dark: '#1D4ED8',
+              soft: '#EFF6FF'
+            },
+            sky: {
+              DEFAULT: '#0284C7',
+              light: '#38BDF8',
+              dark: '#0369A1',
+              soft: '#F0F9FF'
+            }
+          },
+          fontFamily: {
+            sans: ['Sarabun', 'sans-serif']
+          },
+          boxShadow: {
+            'card': '0 2px 12px -2px rgba(15, 23, 42, 0.04)',
+            'soft': '0 10px 28px -6px rgba(15, 23, 42, 0.08)'
+          }
+        }
+      }
+    };
+  </script>
+
+  <style>
+    body {
+      font-family: 'Sarabun', sans-serif;
+      background-color: #FFFFFF;
+      color: #475569;
+      overflow-x: hidden;
+    }
+
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #F8FAFC;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #CBD5E1;
+      border-radius: 9999px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #2563EB;
+    }
+
+    /* Safe bottom padding on mobile for bottom nav */
+    @media (max-width: 767px) {
+      body {
+        padding-bottom: 84px;
+      }
+    }
+  </style>
+</head>
+<body class="bg-purewhite antialiased selection:bg-royal/15 selection:text-charcoal">
+
+  <!-- Toast Notification Container -->
+  <div id="toast-container" class="fixed top-4 right-4 z-[9999] flex flex-col gap-2 pointer-events-none max-w-[90vw]"></div>
+
+  <!-- Top Sticky Header -->
+  <header class="sticky top-0 z-40 bg-purewhite/95 backdrop-blur-md border-b border-slateborder">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-3">
+      <!-- Brand Title -->
+      <div class="flex items-center gap-3 min-w-0">
+        <div class="w-9 h-9 rounded-xl bg-royal text-white flex items-center justify-center shrink-0">
+          <!-- Compass SVG -->
+          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"></circle>
+            <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"></polygon>
+          </svg>
+        </div>
+        <div class="truncate">
+          <span class="font-bold text-sm sm:text-base text-charcoal block leading-tight truncate">Ayutthaya One Day Trip</span>
+          <span class="text-[11px] text-slatebody block truncate">วันศุกร์ที่ 27 พ.ย. 2026 • 07:30 – 20:15 (24 ชม.)</span>
+        </div>
+      </div>
+
+      <!-- Desktop Navigation Pills -->
+      <nav class="hidden md:flex items-center gap-1.5 bg-alabaster p-1 rounded-2xl border border-slateborder">
+        <a href="#section-itinerary" class="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-xl text-sm font-semibold text-charcoal bg-purewhite border border-slateborder/80 hover:text-royal transition">
+          <svg class="w-4 h-4 text-royal" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="6" cy="19" r="3"></circle>
+            <path d="M9 19h8.5a3.5 3.5 0 0 0 0-7h-11a3.5 3.5 0 0 1 0-7H15"></path>
+            <circle cx="18" cy="5" r="3"></circle>
+          </svg>
+          <span>กำหนดการเดินทาง</span>
+        </a>
+        <a href="#section-checklist" class="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-xl text-sm font-medium text-slatebody hover:bg-purewhite hover:text-royal transition">
+          <svg class="w-4 h-4 text-sky" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M9 11l3 3L22 4"></path>
+            <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path>
+          </svg>
+          <span>เช็กลิสต์เตรียมตัว</span>
+        </a>
+        <button type="button" onclick="openRouteModal()" class="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-xl text-sm font-medium text-slatebody hover:bg-purewhite hover:text-royal transition">
+          <svg class="w-4 h-4 text-royal" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="3 6 9 3 15 6 21 3 21 18 15 21 9 18 3 21"></polygon>
+            <line x1="9" y1="3" x2="9" y2="18"></line>
+            <line x1="15" y1="6" x2="15" y2="21"></line>
+          </svg>
+          <span>สรุปเส้นทาง</span>
+        </button>
+      </nav>
+
+      <!-- Top Action Buttons -->
+      <div class="flex items-center gap-2 shrink-0">
+        <a href="https://maps.app.goo.gl/zqf3XgmrSoUgUkgA9" target="_blank" rel="noopener noreferrer"
+           class="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-royal hover:bg-royal-dark text-white text-xs sm:text-sm font-semibold transition">
+          <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="3 11 22 2 13 21 11 13 3 11"></polygon>
+          </svg>
+          <span class="hidden sm:inline">เส้นทางทั้งหมด</span>
+          <span class="sm:hidden">เส้นทาง</span>
+        </a>
+        <button type="button" onclick="openResetModal()" title="รีเซ็ตข้อมูล"
+                class="inline-flex items-center gap-1.5 px-3 py-2 rounded-xl bg-purewhite hover:bg-royal-soft text-slatebody hover:text-royal border border-slateborder text-xs sm:text-sm font-medium transition">
+          <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"></path>
+            <path d="M3 3v5h5"></path>
+          </svg>
+          <span class="hidden lg:inline">รีเซ็ต</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Pure White Hero Dashboard & Live Countdown -->
+  <section class="bg-purewhite border-b border-slateborder text-charcoal pt-8 pb-10 sm:pt-10 sm:pb-12 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-7xl mx-auto">
+      <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-6">
+        <div class="max-w-2xl">
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-royal-soft border border-royal/20 text-royal text-xs sm:text-sm font-semibold mb-4">
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+              <line x1="16" y1="2" x2="16" y2="6"></line>
+              <line x1="8" y1="2" x2="8" y2="6"></line>
+              <line x1="3" y1="10" x2="21" y2="10"></line>
+            </svg>
+            <span>วันศุกร์ที่ 27 พฤศจิกายน 2026 • 07:30 – 20:15 (ระบบเวลา 24 ชม.)</span>
+          </div>
+
+          <h1 class="text-2xl sm:text-4xl lg:text-[42px] font-bold tracking-tight leading-tight text-charcoal">
+            Ayutthaya <span class="text-royal">One Day Trip</span>
+          </h1>
+          <p class="mt-2.5 text-xs sm:text-sm text-slatebody leading-relaxed">
+            แผนท่องเที่ยวพระนครศรีอยุธยาแบบไปเช้าเย็นกลับ ออกเดินทางจากบ้าน (13.7414593, 100.4376642) มุ่งหน้าไหว้พระ 3 วัดสำคัญ ลิ้มรสก๋วยเตี๋ยวเรือในคลอง แวะซื้อของฝากโรตีสายไหม พักจิบกาแฟ Specialty และปิดท้ายด้วยดินเนอร์ริมแม่น้ำเจ้าพระยา
+          </p>
+
+          <!-- Primary Google Maps Full Route CTA -->
+          <div class="mt-5 flex flex-wrap items-center gap-3">
+            <a href="https://maps.app.goo.gl/zqf3XgmrSoUgUkgA9" target="_blank" rel="noopener noreferrer"
+               class="inline-flex items-center gap-2 px-5 py-3 rounded-2xl bg-royal hover:bg-royal-dark text-white font-semibold text-xs sm:text-sm transition">
+              <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polygon points="3 11 22 2 13 21 11 13 3 11"></polygon>
+              </svg>
+              <span>เส้นทางทั้งหมดใน Google Maps</span>
+            </a>
+
+            <button type="button" onclick="openRouteModal()"
+                    class="inline-flex items-center gap-2 px-4 py-3 rounded-2xl bg-purewhite hover:bg-royal-soft text-royal border border-royal/25 font-semibold text-xs sm:text-sm transition">
+              <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="6" cy="19" r="3"></circle>
+                <path d="M9 19h8.5a3.5 3.5 0 0 0 0-7h-11a3.5 3.5 0 0 1 0-7H15"></path>
+                <circle cx="18" cy="5" r="3"></circle>
+              </svg>
+              <span>ดูลำดับจุดแวะพัก &amp; เส้นทางที่เหลือ</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Live Countdown Card (Pure White Surface) -->
+        <div class="bg-alabaster border border-slateborder rounded-2xl p-4 sm:p-5 shrink-0 w-full lg:w-auto shadow-card">
+          <div class="flex items-center justify-between gap-4 mb-2.5">
+            <span class="text-xs font-semibold text-charcoal flex items-center gap-1.5">
+              <svg class="w-4 h-4 text-royal" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"></circle>
+                <polyline points="12 6 12 12 16 14"></polyline>
+              </svg>
+              นับถอยหลังวันออกเดินทาง (07:30)
+            </span>
+            <span id="countdown-status-badge" class="text-[11px] px-2.5 py-0.5 rounded-full bg-royal-soft text-royal border border-royal/20 font-semibold">เตรียมพร้อม</span>
+          </div>
+          <div id="countdown-display" class="grid grid-cols-4 gap-2.5 text-center">
+            <div class="bg-purewhite border border-slateborder rounded-xl px-3 py-2 min-w-[64px]">
+              <div id="cd-days" class="font-bold text-xl sm:text-2xl text-royal">00</div>
+              <div class="text-[11px] text-slatebody">วัน</div>
+            </div>
+            <div class="bg-purewhite border border-slateborder rounded-xl px-3 py-2 min-w-[64px]">
+              <div id="cd-hours" class="font-bold text-xl sm:text-2xl text-charcoal">00</div>
+              <div class="text-[11px] text-slatebody">ชั่วโมง</div>
+            </div>
+            <div class="bg-purewhite border border-slateborder rounded-xl px-3 py-2 min-w-[64px]">
+              <div id="cd-mins" class="font-bold text-xl sm:text-2xl text-charcoal">00</div>
+              <div class="text-[11px] text-slatebody">นาที</div>
+            </div>
+            <div class="bg-purewhite border border-slateborder rounded-xl px-3 py-2 min-w-[64px]">
+              <div id="cd-secs" class="font-bold text-xl sm:text-2xl text-sky">00</div>
+              <div class="text-[11px] text-slatebody">วินาที</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4 Quick Stats Cards (Pure White) -->
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 mt-8">
+        <!-- Total Stops -->
+        <div class="bg-purewhite text-charcoal rounded-2xl p-4 shadow-card border border-slateborder">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-medium text-slatebody">จุดหมายปลายทาง</span>
+            <span class="w-8 h-8 rounded-xl bg-royal-soft text-royal flex items-center justify-center">
+              <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                <circle cx="12" cy="10" r="3"></circle>
+              </svg>
+            </span>
+          </div>
+          <div class="mt-2 font-bold text-xl sm:text-2xl text-charcoal">7 จุดหมายในอยุธยา</div>
+          <div class="text-xs text-slatebody mt-0.5">วัด คาเฟ่ ร้านอาหาร &amp; ริมน้ำ</div>
+        </div>
+
+        <!-- Total Duration -->
+        <div class="bg-purewhite text-charcoal rounded-2xl p-4 shadow-card border border-slateborder">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-medium text-slatebody">ระยะเวลารวมทั้งทริป</span>
+            <span class="w-8 h-8 rounded-xl bg-sky-soft text-sky flex items-center justify-center">
+              <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"></circle>
+                <polyline points="12 6 12 12 16 14"></polyline>
+              </svg>
+            </span>
+          </div>
+          <div class="mt-2 font-bold text-xl sm:text-2xl text-charcoal">12 ชม. 45 นาที</div>
+          <div class="text-xs text-slatebody mt-0.5">07:30 – 20:15 (ไป-กลับ)</div>
+        </div>
+
+        <!-- Total Distance -->
+        <div class="bg-purewhite text-charcoal rounded-2xl p-4 shadow-card border border-slateborder">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-medium text-slatebody">ระยะทางรวมโดยประมาณ</span>
+            <span class="w-8 h-8 rounded-xl bg-alabaster text-deepslate border border-slateborder flex items-center justify-center">
+              <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M18 6H5a2 2 0 0 0-2 2v3a2 2 0 0 0 2 2h13l4-3.5L18 6Z"></path>
+                <path d="M12 13v8"></path>
+                <path d="M12 3v3"></path>
+              </svg>
+            </span>
+          </div>
+          <div class="mt-2 font-bold text-xl sm:text-2xl text-charcoal">~192 กม.</div>
+          <div class="text-xs text-slatebody mt-0.5">ออกเดินทางจากพิกัดบ้านกรุงเทพฯ</div>
+        </div>
+
+        <!-- Interactive Check-in Progress -->
+        <div class="bg-purewhite text-charcoal rounded-2xl p-4 shadow-card border border-slateborder">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-medium text-slatebody">ความคืบหน้าการเช็กอิน</span>
+            <span class="w-8 h-8 rounded-xl bg-royal-soft text-royal flex items-center justify-center">
+              <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                <polyline points="22 4 12 14.01 9 11.01"></polyline>
+              </svg>
+            </span>
+          </div>
+          <div class="mt-2 flex items-baseline justify-between">
+            <span id="hero-checkin-text" class="font-bold text-xl sm:text-2xl text-royal">0 / 9 จุด</span>
+            <span id="hero-checkin-pct" class="text-xs font-semibold text-sky">0%</span>
+          </div>
+          <div class="w-full h-2 bg-slate-100 rounded-full overflow-hidden mt-2">
+            <div id="hero-progress-bar" class="h-full bg-royal rounded-full transition-all duration-500" style="width: 0%"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Content Area (2-Column Responsive Layout: Itinerary & Checklist) -->
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-10 bg-purewhite">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-start">
+
+      <!-- Left Column: Interactive Itinerary Timeline (7 cols on lg) -->
+      <section id="section-itinerary" class="lg:col-span-7 space-y-5">
+        <div class="flex flex-wrap items-center justify-between gap-3 bg-purewhite p-4 sm:p-5 rounded-2xl border border-slateborder shadow-card">
+          <div>
+            <h2 class="text-lg sm:text-xl font-bold text-charcoal flex items-center gap-2.5">
+              <span class="w-1.5 h-6 rounded-full bg-royal inline-block"></span>
+              กำหนดการเดินทาง (07:30 – 20:15)
+            </h2>
+            <p class="text-xs sm:text-sm text-slatebody mt-0.5">เวลาแบบ 24 ชั่วโมง • กดเช็กอิน แก้ไขเวลา เพิ่มโน้ต หรือเปิด Google Maps รายจุดได้ทันที</p>
+          </div>
+          <button type="button" onclick="openAddStopModal()"
+                  class="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-xl bg-royal hover:bg-royal-dark text-white text-xs sm:text-sm font-semibold transition">
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="12" y1="5" x2="12" y2="19"></line>
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+            </svg>
+            <span>เพิ่มจุดแวะพัก</span>
+          </button>
+        </div>
+
+        <!-- Timeline Cards Container -->
+        <div id="itinerary-list" class="relative space-y-4">
+          <!-- Populated dynamically via JS -->
+        </div>
+      </section>
+
+      <!-- Right Column: Sticky Smart Packing Checklist (5 cols on lg) -->
+      <div class="lg:col-span-5 lg:sticky lg:top-20 space-y-6">
+
+        <!-- Smart Packing Checklist -->
+        <section id="section-checklist" class="bg-purewhite rounded-3xl p-5 sm:p-6 shadow-card border border-slateborder space-y-4">
+          <div class="flex items-center justify-between gap-3">
+            <div>
+              <h2 class="text-lg sm:text-xl font-bold text-charcoal flex items-center gap-2.5">
+                <span class="w-8 h-8 rounded-xl bg-sky-soft text-sky flex items-center justify-center">
+                  <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M9 11l3 3L22 4"></path>
+                    <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path>
+                  </svg>
+                </span>
+                เช็กลิสต์เตรียมตัว
+              </h2>
+              <p class="text-xs text-slatebody mt-1">รายการเตรียมความพร้อมสำหรับไหว้พระและนั่งชิลริมแม่น้ำ</p>
+            </div>
+            <span id="checklist-badge" class="px-3 py-1 rounded-full bg-royal-soft text-royal font-semibold text-xs shrink-0">
+              0/8 พร้อมแล้ว
+            </span>
+          </div>
+
+          <!-- Checklist Progress Bar -->
+          <div class="w-full h-2.5 bg-slate-100 rounded-full overflow-hidden">
+            <div id="checklist-progress" class="h-full bg-royal rounded-full transition-all duration-300" style="width: 0%"></div>
+          </div>
+
+          <!-- Checklist Items -->
+          <div id="checklist-items" class="space-y-2 max-h-[540px] overflow-y-auto pr-1">
+            <!-- Populated dynamically -->
+          </div>
+
+          <!-- Add Custom Checklist Item -->
+          <form onsubmit="addChecklistItem(event)" class="pt-3 border-t border-slateborder flex gap-2">
+            <input id="new-checklist-text" type="text" required placeholder="เพิ่มรายการที่ต้องเตรียม..."
+                   class="flex-1 px-3.5 py-2 rounded-xl bg-alabaster border border-slateborder text-xs sm:text-sm text-charcoal placeholder:text-slate-400 focus:outline-none focus:border-royal" />
+            <button type="submit" title="เพิ่มรายการ"
+                    class="px-4 py-2 rounded-xl bg-royal hover:bg-royal-dark text-white font-semibold text-xs sm:text-sm transition shrink-0 flex items-center justify-center">
+              <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="12" y1="5" x2="12" y2="19"></line>
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+              </svg>
+            </button>
+          </form>
+        </section>
+
+      </div>
+    </div>
+  </main>
+
+  <!-- Mobile Bottom Navigation Bar (Pure White) -->
+  <nav class="md:hidden fixed bottom-0 inset-x-0 z-50 bg-purewhite/95 backdrop-blur-md border-t border-slateborder shadow-[0_-4px_20px_rgba(15,23,42,0.04)] px-3 py-1.5">
+    <div class="grid grid-cols-3 gap-1.5">
+      <button type="button" onclick="switchMobileTab('itinerary')" id="mob-tab-itinerary"
+              class="mob-tab-btn flex flex-col items-center justify-center py-2 px-2 rounded-2xl bg-royal-soft text-royal font-semibold text-xs transition">
+        <svg class="w-4 h-4 mb-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="6" cy="19" r="3"></circle>
+          <path d="M9 19h8.5a3.5 3.5 0 0 0 0-7h-11a3.5 3.5 0 0 1 0-7H15"></path>
+          <circle cx="18" cy="5" r="3"></circle>
+        </svg>
+        <span>กำหนดการ</span>
+      </button>
+
+      <button type="button" onclick="switchMobileTab('checklist')" id="mob-tab-checklist"
+              class="mob-tab-btn flex flex-col items-center justify-center py-2 px-2 rounded-2xl text-slatebody hover:bg-alabaster font-medium text-xs transition">
+        <svg class="w-4 h-4 mb-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M9 11l3 3L22 4"></path>
+          <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path>
+        </svg>
+        <span>เช็กลิสต์</span>
+      </button>
+
+      <a href="https://maps.app.goo.gl/zqf3XgmrSoUgUkgA9" target="_blank" rel="noopener noreferrer"
+         class="flex flex-col items-center justify-center py-2 px-2 rounded-2xl bg-royal text-white font-semibold text-xs transition">
+        <svg class="w-4 h-4 mb-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polygon points="3 11 22 2 13 21 11 13 3 11"></polygon>
+        </svg>
+        <span>เส้นทางทั้งหมด</span>
+      </a>
+    </div>
+  </nav>
+
+  <!-- Modal: Full Route Summary & Google Maps Links -->
+  <div id="route-modal" class="fixed inset-0 z-[100] hidden items-center justify-center bg-slate-900/35 backdrop-blur-xs p-4">
+    <div class="bg-purewhite rounded-3xl max-w-lg w-full p-6 shadow-soft border border-slateborder space-y-4 max-h-[90vh] flex flex-col">
+      <div class="flex items-center justify-between shrink-0">
+        <h3 class="font-bold text-lg text-charcoal flex items-center gap-2">
+          <span class="w-8 h-8 rounded-xl bg-royal-soft text-royal flex items-center justify-center">
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polygon points="3 11 22 2 13 21 11 13 3 11"></polygon>
+            </svg>
+          </span>
+          เส้นทางทั้งหมดใน Google Maps
+        </h3>
+        <button type="button" onclick="closeRouteModal()" class="w-8 h-8 rounded-full bg-alabaster hover:bg-royal-soft text-slatebody hover:text-royal flex items-center justify-center transition">
+          <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+
+      <p class="text-xs sm:text-sm text-slatebody shrink-0">
+        ลิงก์เส้นทางรวมที่จัดลำดับจุดหมายครบทั้งทริปตั้งแต่บ้าน (13.7414593, 100.4376642) ไปจนถึงริเวอร์บาร์ อยุธยา และเดินทางกลับบ้าน
+      </p>
+
+      <!-- Route Stop List Preview -->
+      <div id="route-modal-stops" class="bg-alabaster border border-slateborder rounded-2xl p-3.5 space-y-2 overflow-y-auto flex-1 text-xs">
+        <!-- Populated dynamically -->
+      </div>
+
+      <!-- Primary & Secondary Route CTAs -->
+      <div class="pt-2 space-y-2.5 shrink-0">
+        <a href="https://maps.app.goo.gl/zqf3XgmrSoUgUkgA9" target="_blank" rel="noopener noreferrer"
+           class="w-full inline-flex items-center justify-center gap-2 px-5 py-3 rounded-2xl bg-royal hover:bg-royal-dark text-white font-semibold text-xs sm:text-sm transition">
+          <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="3 11 22 2 13 21 11 13 3 11"></polygon>
+          </svg>
+          <span>เปิดเส้นทางทั้งหมดใน Google Maps</span>
+        </a>
+
+        <a id="modal-remaining-route-btn" href="#" target="_blank" rel="noopener noreferrer"
+           class="w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-2xl bg-purewhite hover:bg-royal-soft text-royal border border-royal/25 font-semibold text-xs sm:text-sm transition">
+          <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="6" cy="19" r="3"></circle>
+            <path d="M9 19h8.5a3.5 3.5 0 0 0 0-7h-11a3.5 3.5 0 0 1 0-7H15"></path>
+            <circle cx="18" cy="5" r="3"></circle>
+          </svg>
+          <span id="modal-remaining-route-label">เปิดเส้นทางเฉพาะจุดที่ยังไม่เช็กอิน</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal: Edit Time & Notes (Strict 24-Hour HH:MM Selectors) -->
+  <div id="edit-stop-modal" class="fixed inset-0 z-[100] hidden items-center justify-center bg-slate-900/35 backdrop-blur-xs p-4">
+    <div class="bg-purewhite rounded-3xl max-w-md w-full p-6 shadow-soft border border-slateborder space-y-4">
+      <div class="flex items-center justify-between">
+        <h3 class="font-bold text-lg text-charcoal flex items-center gap-2">
+          <svg class="w-5 h-5 text-royal" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"></circle>
+            <polyline points="12 6 12 12 16 14"></polyline>
+          </svg>
+          แก้ไขเวลา (24 ชม.) และโน้ต
+        </h3>
+        <button type="button" onclick="closeEditStopModal()" class="w-8 h-8 rounded-full bg-alabaster hover:bg-royal-soft text-slatebody hover:text-royal flex items-center justify-center transition">
+          <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+
+      <form onsubmit="handleEditStopSubmit(event)" class="space-y-3.5">
+        <input type="hidden" id="edit-stop-id" />
+        <div>
+          <label class="block text-xs font-medium text-slatebody mb-1">สถานที่</label>
+          <div id="edit-stop-title-display" class="text-sm font-semibold text-charcoal bg-alabaster px-3.5 py-2 rounded-xl border border-slateborder"></div>
+        </div>
+
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <label class="block text-xs font-semibold text-charcoal mb-1">เวลาเริ่ม (24 ชม.)</label>
+            <div class="flex items-center gap-1.5">
+              <select id="edit-start-hh" class="w-full px-2.5 py-2 rounded-xl bg-alabaster border border-slateborder text-sm font-semibold text-charcoal focus:outline-none focus:border-royal"></select>
+              <span class="font-bold text-charcoal">:</span>
+              <select id="edit-start-mm" class="w-full px-2.5 py-2 rounded-xl bg-alabaster border border-slateborder text-sm font-semibold text-charcoal focus:outline-none focus:border-royal"></select>
+            </div>
+          </div>
+          <div>
+            <label class="block text-xs font-semibold text-charcoal mb-1">เวลาสิ้นสุด (24 ชม.)</label>
+            <div class="flex items-center gap-1.5">
+              <select id="edit-end-hh" class="w-full px-2.5 py-2 rounded-xl bg-alabaster border border-slateborder text-sm font-semibold text-charcoal focus:outline-none focus:border-royal"></select>
+              <span class="font-bold text-charcoal">:</span>
+              <select id="edit-end-mm" class="w-full px-2.5 py-2 rounded-xl bg-alabaster border border-slateborder text-sm font-semibold text-charcoal focus:outline-none focus:border-royal"></select>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-xs font-semibold text-charcoal mb-1">โน้ตส่วนตัว</label>
+          <textarea id="edit-stop-note" rows="3" placeholder="เพิ่มบันทึกเพิ่มเติมสำหรับจุดนี้..."
+                    class="w-full px-3.5 py-2 rounded-xl bg-alabaster border border-slateborder text-sm text-charcoal focus:outline-none focus:border-royal"></textarea>
+        </div>
+
+        <div class="pt-2 flex justify-end gap-2">
+          <button type="button" onclick="closeEditStopModal()" class="px-4 py-2 rounded-xl bg-purewhite border border-slateborder text-slatebody text-sm font-medium">ยกเลิก</button>
+          <button type="submit" class="px-5 py-2 rounded-xl bg-royal hover:bg-royal-dark text-white text-sm font-semibold">บันทึกการแก้ไข</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Modal: Add Custom Stop (Strict 24-Hour HH:MM Selectors) -->
+  <div id="add-stop-modal" class="fixed inset-0 z-[100] hidden items-center justify-center bg-slate-900/35 backdrop-blur-xs p-4">
+    <div class="bg-purewhite rounded-3xl max-w-md w-full p-6 shadow-soft border border-slateborder space-y-4">
+      <div class="flex items-center justify-between">
+        <h3 class="font-bold text-lg text-charcoal flex items-center gap-2">
+          <svg class="w-5 h-5 text-royal" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+            <circle cx="12" cy="10" r="3"></circle>
+          </svg>
+          เพิ่มจุดแวะพักในทริป
+        </h3>
+        <button type="button" onclick="closeAddStopModal()" class="w-8 h-8 rounded-full bg-alabaster hover:bg-royal-soft text-slatebody hover:text-royal flex items-center justify-center transition">
+          <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+
+      <form onsubmit="handleAddStop(event)" class="space-y-3.5">
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <label class="block text-xs font-semibold text-charcoal mb-1">เวลาเริ่ม (24 ชม.)</label>
+            <div class="flex items-center gap-1.5">
+              <select id="add-start-hh" class="w-full px-2.5 py-2 rounded-xl bg-alabaster border border-slateborder text-sm font-semibold text-charcoal focus:outline-none focus:border-royal"></select>
+              <span class="font-bold text-charcoal">:</span>
+              <select id="add-start-mm" class="w-full px-2.5 py-2 rounded-xl bg-alabaster border border-slateborder text-sm font-semibold text-charcoal focus:outline-none focus:border-royal"></select>
+            </div>
+          </div>
+          <div>
+            <label class="block text-xs font-semibold text-charcoal mb-1">เวลาสิ้นสุด (24 ชม.)</label>
+            <div class="flex items-center gap-1.5">
+              <select id="add-end-hh" class="w-full px-2.5 py-2 rounded-xl bg-alabaster border border-slateborder text-sm font-semibold text-charcoal focus:outline-none focus:border-royal"></select>
+              <span class="font-bold text-charcoal">:</span>
+              <select id="add-end-mm" class="w-full px-2.5 py-2 rounded-xl bg-alabaster border border-slateborder text-sm font-semibold text-charcoal focus:outline-none focus:border-royal"></select>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-xs font-semibold text-charcoal mb-1">หมวดหมู่</label>
+          <select id="stop-category" class="w-full px-3 py-2 rounded-xl bg-alabaster border border-slateborder text-sm text-charcoal focus:outline-none focus:border-royal">
+            <option value="food">อาหาร / ของฝาก</option>
+            <option value="cafe">คาเฟ่</option>
+            <option value="riverside">ดินเนอร์ริมน้ำ</option>
+            <option value="temple">วัด / โบราณสถาน</option>
+            <option value="travel">จุดพักรถ / เดินทาง</option>
+          </select>
+        </div>
+
+        <div>
+          <label class="block text-xs font-semibold text-charcoal mb-1">ชื่อสถานที่</label>
+          <input id="stop-name" type="text" required placeholder="เช่น ร้านของฝาก / จุดชมวิวเพิ่มเติม"
+                 class="w-full px-3.5 py-2 rounded-xl bg-alabaster border border-slateborder text-sm text-charcoal focus:outline-none focus:border-royal" />
+        </div>
+
+        <div>
+          <label class="block text-xs font-semibold text-charcoal mb-1">ที่อยู่ / โซน</label>
+          <input id="stop-address" type="text" required placeholder="เช่น ตำบลประตูชัย พระนครศรีอยุธยา"
+                 class="w-full px-3.5 py-2 rounded-xl bg-alabaster border border-slateborder text-sm text-charcoal focus:outline-none focus:border-royal" />
+        </div>
+
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <label class="block text-xs font-semibold text-charcoal mb-1">ละติจูด (Google Maps)</label>
+            <input id="stop-lat" type="number" step="any" value="14.3485" required
+                   class="w-full px-3 py-2 rounded-xl bg-alabaster border border-slateborder text-sm text-charcoal focus:outline-none focus:border-royal" />
+          </div>
+          <div>
+            <label class="block text-xs font-semibold text-charcoal mb-1">ลองจิจูด (Google Maps)</label>
+            <input id="stop-lng" type="number" step="any" value="100.5645" required
+                   class="w-full px-3 py-2 rounded-xl bg-alabaster border border-slateborder text-sm text-charcoal focus:outline-none focus:border-royal" />
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-xs font-semibold text-charcoal mb-1">ไฮไลต์ / สิ่งที่แนะนำ</label>
+          <input id="stop-highlight" type="text" placeholder="เช่น แวะถ่ายรูปและพักผ่อน"
+                 class="w-full px-3.5 py-2 rounded-xl bg-alabaster border border-slateborder text-sm text-charcoal focus:outline-none focus:border-royal" />
+        </div>
+
+        <div class="pt-2 flex justify-end gap-2">
+          <button type="button" onclick="closeAddStopModal()" class="px-4 py-2 rounded-xl bg-purewhite border border-slateborder text-slatebody text-sm font-medium">ยกเลิก</button>
+          <button type="submit" class="px-5 py-2 rounded-xl bg-royal hover:bg-royal-dark text-white text-sm font-semibold">บันทึกจุดแวะพัก</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Modal: Reset Confirmation (Pure White) -->
+  <div id="reset-modal" class="fixed inset-0 z-[100] hidden items-center justify-center bg-slate-900/35 backdrop-blur-xs p-4">
+    <div class="bg-purewhite rounded-3xl max-w-sm w-full p-6 shadow-soft border border-slateborder text-center space-y-4">
+      <div class="w-12 h-12 rounded-2xl bg-royal-soft text-royal flex items-center justify-center mx-auto">
+        <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"></path>
+          <path d="M3 3v5h5"></path>
+        </svg>
+      </div>
+      <h3 class="font-bold text-lg text-charcoal">รีเซ็ตข้อมูลทริปทั้งหมด?</h3>
+      <p class="text-sm text-slatebody">การเช็กอิน โน้ตส่วนตัว และรายการเช็กลิสต์ที่แก้ไขไว้จะกลับไปเป็นค่าเริ่มต้นของทริป</p>
+      <div class="flex gap-2.5 pt-2">
+        <button type="button" onclick="closeResetModal()" class="flex-1 py-2.5 rounded-xl bg-purewhite border border-slateborder text-slatebody text-sm font-medium">ยกเลิก</button>
+        <button type="button" onclick="confirmResetData()" class="flex-1 py-2.5 rounded-xl bg-royal hover:bg-royal-dark text-white text-sm font-semibold">ยืนยันรีเซ็ต</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // =========================================================================
+    // 1. DEFAULT TRIP DATA (27/11/2026 - STRICT 24-HOUR FORMAT 07:30 – 20:15)
+    // =========================================================================
+    const STORAGE_KEY = 'ayutthaya_trip_v7_fullroute';
+    const PRIMARY_FULL_ROUTE_URL = 'https://maps.app.goo.gl/zqf3XgmrSoUgUkgA9';
+
+    const DEFAULT_STATE = {
+      activeMobileTab: 'itinerary',
+      itinerary: [
+        {
+          id: 'stop-0',
+          time: '07:30',
+          endTime: '09:00',
+          duration: '1 ชม. 30 นาที',
+          title: 'ออกเดินทางจากบ้าน (13.7414593, 100.4376642)',
+          subtitle: 'จุดเริ่มต้น • วิ่งเส้นราชพฤกษ์–กาญจนาภิเษก (ทล.9) ออกสายเอเชีย (ทล.32)',
+          address: 'พิกัด 13.7414593, 100.4376642 (กรุงเทพฯ)',
+          lat: 13.7414593,
+          lng: 100.4376642,
+          customMapUrl: 'https://www.google.com/maps/search/?api=1&query=13.7414593,100.4376642',
+          category: 'travel',
+          nextLegInfo: 'เดินทางต่อไปยังจุดหมายถัดไป • 10 นาที • 2.2 กม.',
+          hours: '07:30 – 09:00',
+          highlight: 'วิ่งเส้นราชพฤกษ์–กาญจนาภิเษก (ทล.9) ออกสายเอเชีย (ทล.32) มุ่งหน้าพระนครศรีอยุธยา (~82 กม.)',
+          recommended: 'ตรวจเช็กความพร้อมของรถ น้ำมันเชื้อเพลิง และเตรียมอุปกรณ์จำเป็นก่อนออกเดินทาง',
+          dressCode: 'แต่งกายสุภาพพร้อมเข้าสักการะ 3 วัดสำคัญ',
+          checkedIn: false,
+          note: '',
+          isCustom: false
+        },
+        {
+          id: 'stop-1',
+          time: '09:00',
+          endTime: '10:00',
+          duration: '1 ชม.',
+          title: '1. วัดพนัญเชิงวรวิหาร (Wat Phanan Choeng Worawihan)',
+          subtitle: 'สักการะหลวงพ่อโต พระพุทธไตรรัตนนายก และเจ้าแม่สร้อยดอกหมาก',
+          address: '2 ต.กะมัง อ.พระนครศรีอยุธยา จ.พระนครศรีอยุธยา 13000',
+          lat: 14.3444,
+          lng: 100.5789,
+          placeName: 'วัดพนัญเชิงวรวิหาร',
+          placeId: 'ChIJeRffS8x14jARhjllX7IN4ZE',
+          customMapUrl: 'https://maps.app.goo.gl/eCbcPLtMzyfwLpEy8',
+          category: 'temple',
+          nextLegInfo: 'เดินทางต่อไปวัดใหญ่ชัยมงคล • 10 นาที • 2.2 กม.',
+          hours: 'เปิด 08:00 – 17:00',
+          highlight: 'ไหว้หลวงพ่อโต พระพุทธไตรรัตนนายก และเจ้าแม่สร้อยดอกหมาก ขอพรเสริมสิริมงคลรับวันเดินทาง',
+          recommended: 'ร่วมพิธีห่มผ้าไตรถวายหลวงพ่อโตภายในพระวิหาร',
+          dressCode: 'ชุดสุภาพ เสื้อมีแขน กางเกงหรือกระโปรงยาวคลุมเข่า (ถอดรองเท้าก่อนเข้าพระวิหาร)',
+          checkedIn: false,
+          note: '',
+          isCustom: false
+        },
+        {
+          id: 'stop-2',
+          time: '10:10',
+          endTime: '11:20',
+          duration: '1 ชม. 10 นาที',
+          title: '2. วัดใหญ่ชัยมงคล (Wat Yai Chaimongkhon)',
+          subtitle: 'ชมพระเจดีย์ชัยมงคล ไหว้พระพุทธไสยาสน์ และชมวิวรอบวัด',
+          address: '40 หลวงพ่อขาว ซ. 3 ต.ไผ่ลิง อ.พระนครศรีอยุธยา จ.พระนครศรีอยุธยา 13000',
+          lat: 14.3458,
+          lng: 100.5924,
+          placeName: 'วัดใหญ่ชัยมงคล',
+          placeId: 'ChIJVVWFTkl04jAR06HF9Wmceqc',
+          customMapUrl: 'https://maps.app.goo.gl/s2h89tPgMKvVt5up8',
+          category: 'temple',
+          nextLegInfo: 'เดินทางต่อไปก๋วยเตี๋ยวเรือในคลอง อยุธยา • 10 นาที • 2.5 กม.',
+          hours: 'เปิด 08:00 – 17:00',
+          highlight: 'ชมพระเจดีย์ชัยมงคล ไหว้พระพุทธไสยาสน์ และเดินชมวิวรอบลานพระเจดีย์',
+          recommended: 'เดินขึ้นบันไดชมวิวทิวทัศน์มุมสูงบนองค์พระเจดีย์ชัยมงคล',
+          dressCode: 'ชุดสุภาพ รองเท้าสวมใส่สบายสำหรับเดินขึ้นบันไดเจดีย์',
+          checkedIn: false,
+          note: '',
+          isCustom: false
+        },
+        {
+          id: 'stop-3',
+          time: '11:30',
+          endTime: '12:30',
+          duration: '1 ชม.',
+          title: '3. ก๋วยเตี๋ยวเรือในคลอง อยุธยา (Nai Khlong Boat Noodles)',
+          subtitle: 'มื้อเที่ยงก๋วยเตี๋ยวเรือรสเข้มข้นในบรรยากาศริมคลอง',
+          address: '18/4 ต.ไผ่ลิง อ.พระนครศรีอยุธยา จ.พระนครศรีอยุธยา 13000',
+          lat: 14.3556,
+          lng: 100.5925,
+          placeName: 'ก๋วยเตี๋ยวเรือในคลอง อยุธยา',
+          placeId: 'ChIJ4SH6KsF14jARNyGl64f-jFI',
+          customMapUrl: 'https://maps.app.goo.gl/k5UkQtefAMApLPBv5',
+          category: 'food',
+          nextLegInfo: 'เดินทางต่อไปวัดมหาธาตุ • 15 นาที • 4.5 กม.',
+          hours: 'เปิด 08:30 – 15:00 (ปิดวันจันทร์)',
+          highlight: 'มื้อเที่ยงก๋วยเตี๋ยวเรือรสเข้มข้น แนะนำมาช่วง 11:30 เพื่อเลี่ยงคิวพักเที่ยง',
+          recommended: 'ก๋วยเตี๋ยวเรือน้ำตกหมู/เนื้อ กากหมูเจียวกรอบ และขนมถ้วย',
+          dressCode: 'ตามอัธยาศัย',
+          checkedIn: false,
+          note: '',
+          isCustom: false
+        },
+        {
+          id: 'stop-4',
+          time: '12:45',
+          endTime: '14:00',
+          duration: '1 ชม. 15 นาที',
+          title: '4. วัดมหาธาตุ (Wat Mahathat)',
+          subtitle: 'ชมเศียรพระพุทธรูปในรากต้นโพธิ์และโบราณสถานสำคัญ',
+          address: 'ซอยชีกุน ต.ประตูชัย อ.พระนครศรีอยุธยา จ.พระนครศรีอยุธยา 13000',
+          lat: 14.3569,
+          lng: 100.5675,
+          placeName: 'วัดมหาธาตุ',
+          placeId: 'ChIJ-UkaTEl04jAR2QgEGFAM1dU',
+          customMapUrl: 'https://maps.app.goo.gl/yQzB266ozJRrUWWx7',
+          category: 'temple',
+          nextLegInfo: 'เดินทางต่อไปโรตีสายไหม อาบีดีน-ประนอม แสงอรุณ • 10 นาที • 2.5 กม.',
+          hours: 'เปิด 08:00 – 18:30',
+          highlight: 'ชมเศียรพระพุทธรูปในรากต้นโพธิ์และโบราณสถานสำคัญใจกลางอุทยานประวัติศาสตร์',
+          recommended: 'ถ่ายภาพคู่กับเศียรพระพุทธรูปในรากโพธิ์ (นั่งลงถ่ายให้ระดับศีรษะต่ำกว่าเศียรพระเพื่อความสำรวม)',
+          dressCode: 'ชุดสุภาพ พร้อมพกร่ม หมวก และแว่นกันแดดสำหรับเดินกลางแจ้ง',
+          checkedIn: false,
+          note: '',
+          isCustom: false
+        },
+        {
+          id: 'stop-5',
+          time: '14:10',
+          endTime: '14:35',
+          duration: '25 นาที',
+          title: '5. โรตีสายไหม อาบีดีน-ประนอม แสงอรุณ สาขา 1',
+          subtitle: 'แวะซื้อของฝากโรตีสายไหมแป้งนุ่มระดับมิชลิน บิบ กูร์มองด์',
+          address: '32 ประตูชัย 1 ต.ประตูชัย อ.พระนครศรีอยุธยา จ.พระนครศรีอยุธยา 13000',
+          lat: 14.3496,
+          lng: 100.5633,
+          placeName: 'โรตีสายไหม อาบีดีน-ประนอม แสงอรุณ สาขา 1',
+          placeId: 'ChIJ9fIR_Dp04jARHoN4NzShJfU',
+          customMapUrl: 'https://maps.app.goo.gl/zQfLa3sFVhGp7cut7',
+          category: 'food',
+          nextLegInfo: 'เดินทางต่อไป ฟอร์ ฟิลเตอร์ คอฟฟี่ โรสเตอร์ • 5 นาที • 1.5 กม.',
+          hours: 'เปิด 05:30 – 19:00',
+          highlight: 'แวะซื้อของฝากโรตีสายไหมแป้งนุ่มระดับมิชลิน บิบ กูร์มองด์',
+          recommended: 'โรตีสายไหมชุดใหญ่แป้งทำสดใหม่และเส้นสายไหมหอมนุ่ม',
+          dressCode: 'เตรียมเงินสดธนบัตรย่อยและถุงผ้าสำหรับใส่ของฝาก',
+          checkedIn: false,
+          note: '',
+          isCustom: false
+        },
+        {
+          id: 'stop-6',
+          time: '14:40',
+          endTime: '16:15',
+          duration: '1 ชม. 35 นาที',
+          title: '6. ฟอร์ ฟิลเตอร์ คอฟฟี่ โรสเตอร์ (For Filter Coffee Roaster)',
+          subtitle: 'พักจิบกาแฟ Specialty และหลบแดดช่วงบ่าย',
+          address: '21/11 ต.ประตูชัย อ.เมืองพระนครศรีอยุธยา จ.พระนครศรีอยุธยา 13000',
+          lat: 14.3522,
+          lng: 100.5638,
+          placeName: 'ฟอร์ ฟิลเตอร์ คอฟฟี่ โรสเตอร์',
+          placeId: 'ChIJx6zGA1h14jARSDIYPQqRRJ8',
+          customMapUrl: 'https://maps.app.goo.gl/8wSHKVLchvq52DyE8',
+          category: 'cafe',
+          nextLegInfo: 'เดินทางต่อไป ริเวอร์บาร์ อยุธยา • 10 นาที • 1.8 กม.',
+          hours: 'เปิด 07:00 – 18:30',
+          highlight: 'พักจิบกาแฟ Specialty และหลบแดดช่วงบ่ายในบรรยากาศมินิมอลสบายๆ',
+          recommended: 'กาแฟ Filter / Drip เมล็ดคั่วพิเศษ, Dirty และเบเกอรี่โฮมเมด',
+          dressCode: 'ตามอัธยาศัย',
+          checkedIn: false,
+          note: '',
+          isCustom: false
+        },
+        {
+          id: 'stop-7',
+          time: '16:25',
+          endTime: '18:45',
+          duration: '2 ชม. 20 นาที',
+          title: '7. ริเวอร์บาร์ อยุธยา (River Bar - Ayutthaya)',
+          subtitle: 'ดินเนอร์ริมแม่น้ำเจ้าพระยา รับลมเย็นและชมบรรยากาศพระอาทิตย์ตก',
+          address: '1 ประตูชัย ถ.อู่ทอง ต.ประตูชัย อ.พระนครศรีอยุธยา จ.พระนครศรีอยุธยา 13000',
+          lat: 14.3435,
+          lng: 100.5620,
+          placeName: 'ริเวอร์บาร์ อยุธยา',
+          placeId: 'ChIJB-UjT4l14jARWJ0XnD7ab68',
+          customMapUrl: 'https://maps.app.goo.gl/TCCyJw9YDyd4zvC77',
+          category: 'riverside',
+          nextLegInfo: 'เดินทางกลับบ้าน • 1 ชม. 30 นาที • ~92 กม.',
+          hours: 'เปิด 11:00 – 23:00',
+          highlight: 'ดินเนอร์ริมแม่น้ำเจ้าพระยา รับลมเย็นและชมบรรยากาศพระอาทิตย์ตก',
+          recommended: 'กุ้งแม่น้ำเผา อาหารไทยรสกลมกล่อม และเครื่องดื่มเย็นๆ ริมน้ำ',
+          dressCode: 'พกเสื้อคลุมบางๆ สำหรับรับลมเย็นริมแม่น้ำช่วงค่ำ',
+          checkedIn: false,
+          note: '',
+          isCustom: false
+        },
+        {
+          id: 'stop-8',
+          time: '18:45',
+          endTime: '20:15',
+          duration: '1 ชม. 30 นาที',
+          title: 'เดินทางกลับถึงบ้าน (13.7414593, 100.4376642)',
+          subtitle: 'เดินทางกลับกรุงเทพฯ โดยสวัสดิภาพ',
+          address: 'พิกัด 13.7414593, 100.4376642 (กรุงเทพฯ)',
+          lat: 13.7414593,
+          lng: 100.4376642,
+          customMapUrl: 'https://www.google.com/maps/search/?api=1&query=13.7414593,100.4376642',
+          category: 'travel',
+          nextLegInfo: '',
+          hours: '18:45 – 20:15',
+          highlight: 'เดินทางกลับถึงบ้านโดยสวัสดิภาพ พร้อมความประทับใจและของฝากจากอยุธยา',
+          recommended: 'ขับขี่ปลอดภัยตลอดเส้นทาง',
+          dressCode: 'ตามอัธยาศัย',
+          checkedIn: false,
+          note: '',
+          isCustom: false
+        }
+      ],
+      checklist: [
+        { id: 'c-1', text: 'ชุดสุภาพคลุมเข่าและไหล่ (สำหรับเข้าสักการะ 3 วัดและโบราณสถาน)', tag: 'การแต่งกายเข้าวัด', checked: false },
+        { id: 'c-2', text: 'ถุงเท้าสำหรับถอดรองเท้าเข้าโบสถ์ / พระวิหาร', tag: 'การแต่งกายเข้าวัด', checked: false },
+        { id: 'c-3', text: 'ร่มพับ / หมวกกันแดด (สำหรับเดินชมวัดมหาธาตุช่วงบ่าย)', tag: 'กันแดดและอากาศ', checked: false },
+        { id: 'c-4', text: 'แว่นกันแดดและครีมกันแดด', tag: 'กันแดดและอากาศ', checked: false },
+        { id: 'c-5', text: 'พาวเวอร์แบงก์และสายชาร์จโทรศัพท์', tag: 'อุปกรณ์จำเป็น', checked: false },
+        { id: 'c-6', text: 'เงินสดธนบัตรย่อยสำหรับทำบุญและร้านค้าท้องถิ่น', tag: 'อุปกรณ์จำเป็น', checked: false },
+        { id: 'c-7', text: 'ถุงผ้าสำหรับใส่ของฝากโรตีสายไหม อาบีดีน-ประนอม', tag: 'อุปกรณ์จำเป็น', checked: false },
+        { id: 'c-8', text: 'เสื้อคลุมบางๆ สำหรับรับลมเย็นริมแม่น้ำช่วงค่ำที่ River Bar', tag: 'การแต่งกาย', checked: false }
+      ]
+    };
+
+    // Load or Initialize State
+    let appState = loadState();
+
+    function loadState() {
+      try {
+        const saved = localStorage.getItem(STORAGE_KEY);
+        if (saved) {
+          return JSON.parse(saved);
+        }
+      } catch (e) {
+        console.warn('Could not load saved state:', e);
+      }
+      return JSON.parse(JSON.stringify(DEFAULT_STATE));
+    }
+
+    function saveState() {
+      try {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(appState));
+      } catch (e) {
+        console.warn('Could not save state:', e);
+      }
+    }
+
+    // =========================================================================
+    // 2. TOAST NOTIFICATION & LIVE COUNTDOWN (27/11/2026 07:30)
+    // =========================================================================
+    function showToast(message) {
+      const container = document.getElementById('toast-container');
+      if (!container) return;
+
+      const toast = document.createElement('div');
+      toast.className = 'pointer-events-auto flex items-center gap-2.5 bg-charcoal text-white text-xs sm:text-sm font-medium px-4 py-3 rounded-2xl shadow-soft border border-slate-700 transition-all duration-300 opacity-0 translate-y-2';
+      toast.innerHTML = `
+        <svg class="w-4 h-4 text-sky-light shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+          <polyline points="22 4 12 14.01 9 11.01"></polyline>
+        </svg>
+        <span>${escapeHtml(message)}</span>
+      `;
+      container.appendChild(toast);
+
+      requestAnimationFrame(() => {
+        toast.classList.remove('opacity-0', 'translate-y-2');
+      });
+
+      setTimeout(() => {
+        toast.classList.add('opacity-0', 'translate-y-2');
+        setTimeout(() => toast.remove(), 300);
+      }, 2800);
+    }
+
+    function updateCountdown() {
+      const targetTime = new Date('2026-11-27T07:30:00+07:00').getTime();
+      const now = Date.now();
+      const diff = targetTime - now;
+
+      const daysEl = document.getElementById('cd-days');
+      const hoursEl = document.getElementById('cd-hours');
+      const minsEl = document.getElementById('cd-mins');
+      const secsEl = document.getElementById('cd-secs');
+      const badgeEl = document.getElementById('countdown-status-badge');
+
+      if (!daysEl || !hoursEl || !minsEl || !secsEl) return;
+
+      if (diff <= 0) {
+        daysEl.textContent = '00';
+        hoursEl.textContent = '00';
+        minsEl.textContent = '00';
+        secsEl.textContent = '00';
+        if (badgeEl) badgeEl.textContent = 'ถึงวันเดินทางแล้ว';
+        return;
+      }
+
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+      const mins = Math.floor((diff / 1000 / 60) % 60);
+      const secs = Math.floor((diff / 1000) % 60);
+
+      daysEl.textContent = String(days).padStart(2, '0');
+      hoursEl.textContent = String(hours).padStart(2, '0');
+      minsEl.textContent = String(mins).padStart(2, '0');
+      secsEl.textContent = String(secs).padStart(2, '0');
+    }
+
+    // =========================================================================
+    // 3. GOOGLE MAPS URL GENERATORS (SINGLE STOP & REMAINING UNVISITED ROUTE)
+    // =========================================================================
+    function getSingleDirectionUrl(stop) {
+      if (stop.customMapUrl) {
+        return stop.customMapUrl;
+      }
+      if (stop.placeId && stop.placeName) {
+        return `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(stop.placeName)}&destination_place_id=${stop.placeId}&travelmode=driving`;
+      }
+      return `https://www.google.com/maps/dir/?api=1&destination=${stop.lat},${stop.lng}&travelmode=driving`;
+    }
+
+    function getRemainingUnvisitedStops() {
+      const middleStops = appState.itinerary.slice(1, -1);
+      return middleStops.filter(s => !s.checkedIn);
+    }
+
+    function getRemainingRouteGoogleMapsUrl() {
+      const stops = appState.itinerary;
+      if (!stops || stops.length < 2) return PRIMARY_FULL_ROUTE_URL;
+
+      const origin = `${stops[0].lat},${stops[0].lng}`;
+      const destination = `${stops[stops.length - 1].lat},${stops[stops.length - 1].lng}`;
+      const remainingStops = getRemainingUnvisitedStops();
+
+      if (remainingStops.length === 0) {
+        return `https://www.google.com/maps/dir/?api=1&origin=${origin}&destination=${destination}&travelmode=driving`;
+      }
+
+      const waypointNames = remainingStops.map(s => s.placeName || s.title);
+      const waypointIds = remainingStops.map(s => s.placeId || '');
+      const hasAllPlaceIds = waypointIds.every(id => id !== '');
+
+      let url = `https://www.google.com/maps/dir/?api=1&origin=${origin}&destination=${destination}&travelmode=driving`;
+      url += `&waypoints=${encodeURIComponent(waypointNames.join('|'))}`;
+      if (hasAllPlaceIds) {
+        url += `&waypoint_place_ids=${waypointIds.join('|')}`;
+      }
+      return url;
+    }
+
+    // =========================================================================
+    // 4. ROUTE MODAL HANDLERS
+    // =========================================================================
+    function openRouteModal() {
+      const stopsContainer = document.getElementById('route-modal-stops');
+      const remainingBtn = document.getElementById('modal-remaining-route-btn');
+      const remainingLabel = document.getElementById('modal-remaining-route-label');
+
+      if (stopsContainer) {
+        stopsContainer.innerHTML = appState.itinerary.map((stop, idx) => `
+          <div class="flex items-center justify-between gap-2 py-1.5 px-2.5 rounded-xl bg-purewhite border border-slateborder">
+            <div class="flex items-center gap-2 min-w-0">
+              <span class="w-5 h-5 rounded-full text-[11px] font-bold text-white flex items-center justify-center shrink-0"
+                    style="background-color: ${stop.checkedIn ? '#94A3B8' : '#2563EB'}">
+                ${idx}
+              </span>
+              <span class="truncate font-medium ${stop.checkedIn ? 'line-through text-slate-400' : 'text-charcoal'}">
+                ${escapeHtml(stop.title)}
+              </span>
+            </div>
+            <span class="text-[11px] font-semibold shrink-0 ${stop.checkedIn ? 'text-slate-400' : 'text-royal'}">
+              ${stop.time}
+            </span>
+          </div>
+        `).join('');
+      }
+
+      const remainingStops = getRemainingUnvisitedStops();
+      if (remainingBtn && remainingLabel) {
+        remainingBtn.href = getRemainingRouteGoogleMapsUrl();
+        remainingLabel.textContent = remainingStops.length > 0
+          ? `เส้นทางเฉพาะจุดที่ยังไม่เช็กอิน (เหลือ ${remainingStops.length} จุด)`
+          : 'เช็กอินครบทุกจุดแล้ว • เปิดเส้นทางกลับบ้าน';
+      }
+
+      const modal = document.getElementById('route-modal');
+      if (modal) {
+        modal.classList.remove('hidden');
+        modal.classList.add('flex');
+      }
+    }
+
+    function closeRouteModal() {
+      const modal = document.getElementById('route-modal');
+      if (modal) {
+        modal.classList.add('hidden');
+        modal.classList.remove('flex');
+      }
+    }
+
+    // =========================================================================
+    // 5. 24-HOUR TIME SELECTOR HELPERS (HH:MM)
+    // =========================================================================
+    function populate24HourSelects() {
+      const hourIds = ['edit-start-hh', 'edit-end-hh', 'add-start-hh', 'add-end-hh'];
+      const minIds = ['edit-start-mm', 'edit-end-mm', 'add-start-mm', 'add-end-mm'];
+
+      hourIds.forEach(id => {
+        const el = document.getElementById(id);
+        if (!el) return;
+        let opts = '';
+        for (let h = 0; h < 24; h++) {
+          const val = String(h).padStart(2, '0');
+          opts += `<option value="${val}">${val}</option>`;
+        }
+        el.innerHTML = opts;
+      });
+
+      minIds.forEach(id => {
+        const el = document.getElementById(id);
+        if (!el) return;
+        let opts = '';
+        for (let m = 0; m < 60; m++) {
+          const val = String(m).padStart(2, '0');
+          opts += `<option value="${val}">${val}</option>`;
+        }
+        el.innerHTML = opts;
+      });
+    }
+
+    // =========================================================================
+    // 6. INTERACTIVE ITINERARY TIMELINE (Pure White & Strict 24-Hour HH:MM)
+    // =========================================================================
+    function getCategoryPinColor(category) {
+      if (category === 'temple') return '#2563EB';    // Royal Blue
+      if (category === 'food') return '#0284C7';      // Sky Blue
+      if (category === 'cafe') return '#3B82F6';      // Bright Blue
+      if (category === 'riverside') return '#1D4ED8'; // Deep Royal Blue
+      return '#1E293B';                               // Deep Slate
+    }
+
+    function getCategoryMeta(category) {
+      switch (category) {
+        case 'temple':
+          return {
+            label: 'วัด / โบราณสถาน',
+            badgeClass: 'bg-royal-soft text-royal border-royal/20',
+            svg: '<svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"></path><path d="M2 17l10 5 10-5"></path><path d="M2 12l10 5 10-5"></path></svg>'
+          };
+        case 'food':
+          return {
+            label: 'อาหาร / ของฝาก',
+            badgeClass: 'bg-sky-soft text-sky border-sky/20',
+            svg: '<svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"></path><path d="M7 2v20"></path><path d="M21 15V2v0a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3Zm0 0v7"></path></svg>'
+          };
+        case 'cafe':
+          return {
+            label: 'คาเฟ่',
+            badgeClass: 'bg-royal-soft text-royal-dark border-royal/20',
+            svg: '<svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 8h1a4 4 0 1 1 0 8h-1"></path><path d="M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4Z"></path><line x1="6" y1="2" x2="6" y2="4"></line><line x1="10" y1="2" x2="10" y2="4"></line><line x1="14" y1="2" x2="14" y2="4"></line></svg>'
+          };
+        case 'riverside':
+          return {
+            label: 'ดินเนอร์ริมน้ำ',
+            badgeClass: 'bg-sky-soft text-sky-dark border-sky/20',
+            svg: '<svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6c.6.5 1.2 1 2.5 1C7 7 7 5 9.5 5c2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1"></path><path d="M2 12c.6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1"></path><path d="M2 18c.6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1"></path></svg>'
+          };
+        default:
+          return {
+            label: 'การเดินทาง',
+            badgeClass: 'bg-alabaster text-deepslate border-slateborder',
+            svg: '<svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2"></path><circle cx="7" cy="17" r="2"></circle><path d="M9 17h6"></path><circle cx="17" cy="17" r="2"></circle></svg>'
+          };
+      }
+    }
+
+    function renderItinerary() {
+      const container = document.getElementById('itinerary-list');
+      if (!container) return;
+
+      container.innerHTML = appState.itinerary.map((stop, index) => {
+        const meta = getCategoryMeta(stop.category);
+        const isChecked = stop.checkedIn;
+        const timeRangeLabel = stop.endTime ? `${stop.time} – ${stop.endTime}` : `${stop.time}`;
+
+        return `
+          <article class="relative bg-purewhite rounded-3xl p-4 sm:p-6 shadow-card border transition-all duration-300 ${isChecked ? 'border-royal/40 bg-royal-soft/20' : 'border-slateborder'}">
+            <!-- Top Row: Strict 24-Hour Time Range, Duration, Category & Check-in Button -->
+            <div class="flex flex-wrap items-center justify-between gap-2.5 pb-3 border-b border-slateborder">
+              <div class="flex flex-wrap items-center gap-2">
+                <span class="w-8 h-8 rounded-xl font-bold text-sm text-white flex items-center justify-center"
+                      style="background-color: ${getCategoryPinColor(stop.category)}">
+                  ${index}
+                </span>
+
+                <!-- Clickable 24-Hour Time Pill -->
+                <button type="button" onclick="openEditStopModal('${stop.id}')" title="คลิกเพื่อแก้ไขเวลา (24 ชม.)"
+                        class="inline-flex items-center gap-1.5 px-3 py-1 rounded-xl bg-alabaster hover:bg-royal-soft border border-slateborder hover:border-royal/30 text-xs sm:text-sm font-semibold text-charcoal transition">
+                  <svg class="w-3.5 h-3.5 text-royal" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <polyline points="12 6 12 12 16 14"></polyline>
+                  </svg>
+                  <span>${timeRangeLabel}</span>
+                  <svg class="w-3 h-3 text-slatebody ml-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"></path>
+                  </svg>
+                </button>
+
+                ${stop.duration ? `
+                  <span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-xl bg-sky-soft text-sky text-xs font-semibold border border-sky/15">
+                    ${stop.duration}
+                  </span>
+                ` : ''}
+
+                <span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full border text-xs font-medium ${meta.badgeClass}">
+                  ${meta.svg}
+                  <span>${meta.label}</span>
+                </span>
+              </div>
+
+              <div class="flex items-center gap-2">
+                ${stop.isCustom ? `
+                  <button type="button" onclick="deleteCustomStop('${stop.id}')" title="ลบจุดแวะพักนี้"
+                          class="p-2 rounded-xl bg-purewhite hover:bg-royal-soft text-slatebody hover:text-royal border border-slateborder transition">
+                    <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <polyline points="3 6 5 6 21 6"></polyline>
+                      <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+                    </svg>
+                  </button>
+                ` : ''}
+
+                <button type="button" onclick="toggleCheckIn('${stop.id}')"
+                        class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl font-semibold text-xs sm:text-sm transition ${
+                          isChecked
+                            ? 'bg-royal text-white'
+                            : 'bg-purewhite hover:bg-royal-soft text-charcoal border border-slateborder'
+                        }">
+                  ${isChecked ? `
+                    <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                      <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                    </svg>
+                  ` : `
+                    <svg class="w-4 h-4 text-slate-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <circle cx="12" cy="12" r="10"></circle>
+                    </svg>
+                  `}
+                  <span>${isChecked ? 'เช็กอินแล้ว' : 'เช็กอิน'}</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Title & Address -->
+            <div class="mt-3.5">
+              <div>
+                <h3 class="font-bold text-base sm:text-lg text-charcoal ${isChecked ? 'line-through decoration-royal/50 opacity-75' : ''}">
+                  ${escapeHtml(stop.title)}
+                </h3>
+                <p class="text-xs font-medium text-royal mt-0.5">${escapeHtml(stop.subtitle)}</p>
+              </div>
+
+              <div class="mt-2 flex flex-wrap items-center gap-x-4 gap-y-1 text-xs text-slatebody">
+                <span class="inline-flex items-center gap-1">
+                  <svg class="w-3.5 h-3.5 text-sky shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                    <circle cx="12" cy="10" r="3"></circle>
+                  </svg>
+                  ${escapeHtml(stop.address)}
+                </span>
+                <span class="inline-flex items-center gap-1">
+                  <svg class="w-3.5 h-3.5 text-royal shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <polyline points="12 6 12 12 16 14"></polyline>
+                  </svg>
+                  ${escapeHtml(stop.hours)}
+                </span>
+              </div>
+            </div>
+
+            <!-- Details Grid: Highlight & Recommended -->
+            <div class="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-2.5 text-xs sm:text-[13px]">
+              <div class="p-3 rounded-2xl bg-alabaster border border-slateborder">
+                <div class="font-semibold text-charcoal mb-1 flex items-center gap-1.5">
+                  <svg class="w-3.5 h-3.5 text-royal" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                  </svg>
+                  ไฮไลต์สถานที่
+                </div>
+                <p class="text-slatebody leading-relaxed">${escapeHtml(stop.highlight)}</p>
+              </div>
+
+              <div class="p-3 rounded-2xl bg-alabaster border border-slateborder">
+                <div class="font-semibold text-charcoal mb-1 flex items-center gap-1.5">
+                  <svg class="w-3.5 h-3.5 text-sky" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"></path>
+                  </svg>
+                  เมนู / กิจกรรมแนะนำ
+                </div>
+                <p class="text-slatebody leading-relaxed">${escapeHtml(stop.recommended)}</p>
+              </div>
+            </div>
+
+            <!-- Dress Code / Tips Banner -->
+            <div class="mt-2.5 px-3.5 py-2 rounded-2xl bg-royal-soft/60 border border-royal/15 flex items-start gap-2 text-xs text-charcoal">
+              <svg class="w-4 h-4 text-royal mt-0.5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="12" y1="16" x2="12" y2="12"></line>
+                <line x1="12" y1="8" x2="12.01" y2="8"></line>
+              </svg>
+              <div><span class="font-semibold">คำแนะนำ:</span> ${escapeHtml(stop.dressCode)}</div>
+            </div>
+
+            <!-- Personal Note & Google Maps Action -->
+            <div class="mt-4 pt-3 border-t border-slateborder flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+              <div class="flex-1 flex items-center gap-2 bg-alabaster px-3 py-1.5 rounded-xl border border-slateborder">
+                <svg class="w-3.5 h-3.5 text-royal shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path>
+                  <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path>
+                </svg>
+                <input type="text" value="${escapeHtml(stop.note || '')}"
+                       onchange="updateStopNote('${stop.id}', this.value)"
+                       placeholder="เพิ่มโน้ตส่วนตัวสำหรับจุดนี้..."
+                       class="w-full bg-transparent text-xs text-charcoal placeholder:text-slate-400 focus:outline-none" />
+              </div>
+
+              <div class="flex items-center gap-2 shrink-0">
+                <a href="${getSingleDirectionUrl(stop)}" target="_blank" rel="noopener noreferrer"
+                   class="w-full sm:w-auto inline-flex items-center justify-center gap-1.5 px-4 py-2 rounded-xl bg-royal hover:bg-royal-dark text-white text-xs font-semibold transition">
+                  <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polygon points="3 11 22 2 13 21 11 13 3 11"></polygon>
+                  </svg>
+                  <span>นำทาง Google Maps</span>
+                </a>
+              </div>
+            </div>
+
+            <!-- Next Leg Travel Connector -->
+            ${stop.nextLegInfo ? `
+              <div class="mt-4 pt-3 border-t border-dashed border-slateborder flex items-center gap-2 text-xs font-semibold text-royal">
+                <span class="w-6 h-6 rounded-full bg-royal-soft text-royal flex items-center justify-center shrink-0">
+                  <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="12" y1="5" x2="12" y2="19"></line>
+                    <polyline points="19 12 12 19 5 12"></polyline>
+                  </svg>
+                </span>
+                <span>${escapeHtml(stop.nextLegInfo)}</span>
+              </div>
+            ` : ''}
+          </article>
+        `;
+      }).join('');
+
+      updateProgressDashboard();
+    }
+
+    function escapeHtml(str) {
+      return String(str)
+        .replace(/&/g, '&amp;')
+        .replace(/"/g, '&quot;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;');
+    }
+
+    function toggleCheckIn(stopId) {
+      const stop = appState.itinerary.find(s => s.id === stopId);
+      if (!stop) return;
+      stop.checkedIn = !stop.checkedIn;
+      saveState();
+      renderItinerary();
+      showToast(stop.checkedIn ? `เช็กอิน "${stop.title.split('(')[0].trim()}" เรียบร้อย!` : 'ยกเลิกการเช็กอินแล้ว');
+    }
+
+    function updateStopNote(stopId, newNote) {
+      const stop = appState.itinerary.find(s => s.id === stopId);
+      if (!stop) return;
+      stop.note = newNote;
+      saveState();
+      showToast('บันทึกโน้ตส่วนตัวแล้ว');
+    }
+
+    function updateProgressDashboard() {
+      const total = appState.itinerary.length;
+      const checked = appState.itinerary.filter(s => s.checkedIn).length;
+      const pct = total > 0 ? Math.round((checked / total) * 100) : 0;
+
+      const textEl = document.getElementById('hero-checkin-text');
+      const pctEl = document.getElementById('hero-checkin-pct');
+      const barEl = document.getElementById('hero-progress-bar');
+
+      if (textEl) textEl.textContent = `${checked} / ${total} จุด`;
+      if (pctEl) pctEl.textContent = `${pct}%`;
+      if (barEl) barEl.style.width = `${pct}%`;
+    }
+
+    // Edit Time & Notes Modal Handlers (24-Hour HH:MM Selectors)
+    function openEditStopModal(stopId) {
+      const stop = appState.itinerary.find(s => s.id === stopId);
+      if (!stop) return;
+
+      document.getElementById('edit-stop-id').value = stop.id;
+      document.getElementById('edit-stop-title-display').textContent = stop.title;
+
+      const [startHH, startMM] = (stop.time || '09:00').split(':');
+      const [endHH, endMM] = (stop.endTime || stop.time || '10:00').split(':');
+
+      document.getElementById('edit-start-hh').value = startHH || '09';
+      document.getElementById('edit-start-mm').value = startMM || '00';
+      document.getElementById('edit-end-hh').value = endHH || '10';
+      document.getElementById('edit-end-mm').value = endMM || '00';
+      document.getElementById('edit-stop-note').value = stop.note || '';
+
+      const modal = document.getElementById('edit-stop-modal');
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+    }
+
+    function closeEditStopModal() {
+      const modal = document.getElementById('edit-stop-modal');
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+    }
+
+    function handleEditStopSubmit(e) {
+      e.preventDefault();
+      const stopId = document.getElementById('edit-stop-id').value;
+      const stop = appState.itinerary.find(s => s.id === stopId);
+      if (!stop) return;
+
+      const normalizedStart = `${document.getElementById('edit-start-hh').value}:${document.getElementById('edit-start-mm').value}`;
+      const normalizedEnd = `${document.getElementById('edit-end-hh').value}:${document.getElementById('edit-end-mm').value}`;
+
+      stop.time = normalizedStart;
+      stop.endTime = normalizedEnd;
+      stop.note = document.getElementById('edit-stop-note').value;
+
+      saveState();
+      renderItinerary();
+      closeEditStopModal();
+      showToast(`อัปเดตเวลาเป็น ${normalizedStart} – ${normalizedEnd} เรียบร้อยแล้ว`);
+    }
+
+    // Add Custom Stop Modal Handlers (24-Hour HH:MM Selectors)
+    function openAddStopModal() {
+      document.getElementById('add-start-hh').value = '16';
+      document.getElementById('add-start-mm').value = '00';
+      document.getElementById('add-end-hh').value = '16';
+      document.getElementById('add-end-mm').value = '20';
+
+      const modal = document.getElementById('add-stop-modal');
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+    }
+
+    function closeAddStopModal() {
+      const modal = document.getElementById('add-stop-modal');
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+    }
+
+    function handleAddStop(e) {
+      e.preventDefault();
+      const normalizedStart = `${document.getElementById('add-start-hh').value}:${document.getElementById('add-start-mm').value}`;
+      const normalizedEnd = `${document.getElementById('add-end-hh').value}:${document.getElementById('add-end-mm').value}`;
+
+      const category = document.getElementById('stop-category').value;
+      const name = document.getElementById('stop-name').value.trim();
+      const address = document.getElementById('stop-address').value.trim();
+      const lat = parseFloat(document.getElementById('stop-lat').value);
+      const lng = parseFloat(document.getElementById('stop-lng').value);
+      const highlight = document.getElementById('stop-highlight').value.trim() || 'จุดแวะพักเพิ่มเติมในทริปอยุธยา';
+
+      const newStop = {
+        id: 'custom-' + Date.now(),
+        time: normalizedStart,
+        endTime: normalizedEnd,
+        duration: 'แวะพักเพิ่มเติม',
+        title: name,
+        subtitle: 'จุดแวะพักเพิ่มเติม',
+        address,
+        lat: isNaN(lat) ? 14.350 : lat,
+        lng: isNaN(lng) ? 100.565 : lng,
+        category,
+        nextLegInfo: 'เดินทางต่อไปยังจุดหมายถัดไปตามกำหนดการ',
+        hours: `${normalizedStart} – ${normalizedEnd}`,
+        highlight,
+        recommended: 'แวะพักผ่อนและเก็บภาพความประทับใจ',
+        dressCode: 'ตามความเหมาะสมของสถานที่',
+        checkedIn: false,
+        note: '',
+        isCustom: true
+      };
+
+      const returnIdx = appState.itinerary.findIndex(s => s.id === 'stop-8');
+      if (returnIdx !== -1) {
+        appState.itinerary.splice(returnIdx, 0, newStop);
+      } else {
+        appState.itinerary.push(newStop);
+      }
+
+      saveState();
+      renderItinerary();
+      closeAddStopModal();
+      e.target.reset();
+      showToast(`เพิ่ม "${name}" ลงในกำหนดการแล้ว!`);
+    }
+
+    function deleteCustomStop(stopId) {
+      appState.itinerary = appState.itinerary.filter(s => s.id !== stopId);
+      saveState();
+      renderItinerary();
+      showToast('ลบจุดแวะพักเรียบร้อยแล้ว');
+    }
+
+    // =========================================================================
+    // 7. SMART PACKING CHECKLIST (Pure White Styling)
+    // =========================================================================
+    function renderChecklist() {
+      const container = document.getElementById('checklist-items');
+      if (!container) return;
+
+      container.innerHTML = appState.checklist.map(item => `
+        <div class="flex items-center justify-between gap-2.5 p-3 rounded-2xl border transition ${
+          item.checked
+            ? 'bg-royal-soft/45 border-royal/30'
+            : 'bg-purewhite hover:bg-alabaster border-slateborder'
+        }">
+          <label class="flex items-start gap-3 cursor-pointer flex-1 select-none">
+            <input type="checkbox" ${item.checked ? 'checked' : ''}
+                   onchange="toggleChecklistItem('${item.id}')"
+                   class="mt-1 w-4 h-4 rounded accent-[#2563EB] cursor-pointer" />
+            <div class="flex-1">
+              <span class="text-xs sm:text-sm font-medium block ${item.checked ? 'line-through text-slate-400' : 'text-charcoal'}">
+                ${escapeHtml(item.text)}
+              </span>
+              <span class="inline-block mt-1 text-[10px] font-semibold px-2 py-0.5 rounded-full bg-sky-soft text-sky border border-sky/15">
+                ${escapeHtml(item.tag || 'ทั่วไป')}
+              </span>
+            </div>
+          </label>
+          <button type="button" onclick="deleteChecklistItem('${item.id}')" title="ลบรายการ"
+                  class="p-1.5 rounded-lg text-slate-400 hover:text-royal transition">
+            <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="18" y1="6" x2="6" y2="18"></line>
+              <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+          </button>
+        </div>
+      `).join('');
+
+      const total = appState.checklist.length;
+      const done = appState.checklist.filter(c => c.checked).length;
+      const pct = total > 0 ? Math.round((done / total) * 100) : 0;
+
+      document.getElementById('checklist-badge').textContent = `${done}/${total} พร้อมแล้ว`;
+      document.getElementById('checklist-progress').style.width = `${pct}%`;
+    }
+
+    function toggleChecklistItem(id) {
+      const item = appState.checklist.find(c => c.id === id);
+      if (!item) return;
+      item.checked = !item.checked;
+      saveState();
+      renderChecklist();
+    }
+
+    function addChecklistItem(e) {
+      e.preventDefault();
+      const input = document.getElementById('new-checklist-text');
+      const text = input.value.trim();
+      if (!text) return;
+
+      appState.checklist.push({
+        id: 'c-' + Date.now(),
+        text,
+        tag: 'เพิ่มเติม',
+        checked: false
+      });
+      saveState();
+      renderChecklist();
+      input.value = '';
+      showToast('เพิ่มรายการเตรียมตัวแล้ว');
+    }
+
+    function deleteChecklistItem(id) {
+      appState.checklist = appState.checklist.filter(c => c.id !== id);
+      saveState();
+      renderChecklist();
+    }
+
+    // =========================================================================
+    // 8. MOBILE TAB NAVIGATION & RESPONSIVE HANDLING
+    // =========================================================================
+    function switchMobileTab(tabName) {
+      appState.activeMobileTab = tabName;
+
+      const sItinerary = document.getElementById('section-itinerary');
+      const sChecklist = document.getElementById('section-checklist');
+
+      const btns = {
+        itinerary: document.getElementById('mob-tab-itinerary'),
+        checklist: document.getElementById('mob-tab-checklist')
+      };
+
+      Object.values(btns).forEach(btn => {
+        if (!btn) return;
+        btn.className = 'mob-tab-btn flex flex-col items-center justify-center py-2 px-2 rounded-2xl text-slatebody hover:bg-alabaster font-medium text-xs transition';
+      });
+
+      if (btns[tabName]) {
+        btns[tabName].className = 'mob-tab-btn flex flex-col items-center justify-center py-2 px-2 rounded-2xl bg-royal-soft text-royal font-semibold text-xs transition';
+      }
+
+      if (window.innerWidth < 768) {
+        sItinerary.classList.toggle('hidden', tabName !== 'itinerary');
+        sChecklist.classList.toggle('hidden', tabName !== 'checklist');
+      } else {
+        sItinerary.classList.remove('hidden');
+        sChecklist.classList.remove('hidden');
+      }
+    }
+
+    window.addEventListener('resize', () => {
+      switchMobileTab(appState.activeMobileTab || 'itinerary');
+    });
+
+    // =========================================================================
+    // 9. RESET MODAL HANDLERS
+    // =========================================================================
+    function openResetModal() {
+      const modal = document.getElementById('reset-modal');
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+    }
+
+    function closeResetModal() {
+      const modal = document.getElementById('reset-modal');
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+    }
+
+    function confirmResetData() {
+      localStorage.removeItem(STORAGE_KEY);
+      appState = JSON.parse(JSON.stringify(DEFAULT_STATE));
+      saveState();
+      renderItinerary();
+      renderChecklist();
+      closeResetModal();
+      showToast('รีเซ็ตข้อมูลทริปกลับเป็นค่าเริ่มต้นเรียบร้อยแล้ว');
+    }
+
+    // =========================================================================
+    // 10. INITIALIZATION ON DOM CONTENT LOADED
+    // =========================================================================
+    window.addEventListener('DOMContentLoaded', () => {
+      populate24HourSelects();
+      updateCountdown();
+      setInterval(updateCountdown, 1000);
+
+      renderItinerary();
+      renderChecklist();
+      switchMobileTab('itinerary');
+    });
+  </script>
+</body>
+</html>
